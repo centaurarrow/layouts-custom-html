@@ -11,7 +11,7 @@ export default createWidget('custom-html', {
   },
 
   html(attrs, state) {
-  //  if (!state.renderScheduled) {
+    if (!state.renderScheduled) {
       let html = this.siteSettings.layouts_custom_html;
 
       const category = attrs.category;
@@ -23,9 +23,9 @@ export default createWidget('custom-html', {
         $("div.custom-html").append(`<div class='contents'>${html}</div>`);
       });
       state.renderScheduled = true;
-//    } else {
-      state.scheduleRerender(); 
- //   }
+    } else {
+      console.log("here");
+    }
     return '';
   }
 });
