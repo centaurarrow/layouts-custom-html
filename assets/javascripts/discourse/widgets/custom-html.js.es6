@@ -22,7 +22,7 @@ export default createWidget('custom-html', {
       Ember.run.scheduleOnce('afterRender', this, function() {
         $("div.custom-html").append(`<div class='contents'>${html}</div>`);
       });
-      state.renderScheduled = true;
+    //  state.renderScheduled = true;
     } else {
       console.log("here");
     }
