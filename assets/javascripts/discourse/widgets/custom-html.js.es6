@@ -1,4 +1,4 @@
-import { createWidget } from 'discourse/widgets/widget';
+import { createWidget,decorateWidget } from 'discourse/widgets/widget';
 
 export default createWidget('custom-html', {
   tagName: 'div.custom-html.widget-container',
@@ -11,7 +11,7 @@ export default createWidget('custom-html', {
   },
 
   html(attrs, state) {
-  //  if (!state.renderScheduled) {
+    if (!state.renderScheduled) {
       let html = this.siteSettings.layouts_custom_html;
 
       const category = attrs.category;
@@ -23,7 +23,9 @@ export default createWidget('custom-html', {
         $("div.custom-html").append(`<div class='contents'>${html}</div>`);
       });
       state.renderScheduled = true;
-  //  }
+    } else {
+      state.scheduleRerender(); 
+    }
     return '';
   }
 });
