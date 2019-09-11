@@ -1,4 +1,4 @@
-import { createWidget,decorateWidget } from 'discourse/widgets/widget';
+import { createWidget } from 'discourse/widgets/widget';
 
 export default createWidget('custom-html', {
   tagName: 'div.custom-html.widget-container',
